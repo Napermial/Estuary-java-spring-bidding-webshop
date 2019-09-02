@@ -2,7 +2,11 @@ package com.napermial.estuary.model;
 
 import org.springframework.stereotype.Component;
 
+<<<<<<< Updated upstream
 import java.util.Date;
+=======
+import java.time.LocalDateTime;
+>>>>>>> Stashed changes
 import java.util.List;
 
 @Component

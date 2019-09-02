@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class AdvertStorageImplementation implements AdvertStorage {
 
-    List<Advert> adverts = new ArrayList<>();
+    private List<Advert> adverts = new ArrayList<>();
 
     @Override
     public void postAdvert(Advert advert) {

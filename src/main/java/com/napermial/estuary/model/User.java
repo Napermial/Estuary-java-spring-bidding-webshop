@@ -13,11 +13,11 @@ public class User {
     private List<Message> messages;
     private Date regeistrationDate;
 
-    public void postAnAdvert(Advert advert){
+    public void postAnAdvert(Advert advert) {
         adverts.add(advert);
     }
 
-    public void removeAdvert(int id){
+    public void removeAdvert(int id) {
         adverts.remove(id);
     }
 
