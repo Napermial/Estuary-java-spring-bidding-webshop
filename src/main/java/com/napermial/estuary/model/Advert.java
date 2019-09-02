@@ -2,6 +2,7 @@ package com.napermial.estuary.model;
 
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -9,12 +10,15 @@ import java.util.List;
 public class Advert {
 
     public Advert() {
+        id = id++;
+        auctionEndDate = LocalDateTime.now();
     }
 
-    public Advert(float bidPrice, Date auctionEndDate, String description, String title, List<Message> messages) {
+    public Advert(float bidPrice, String description, String title, List<Message> messages, List<CategoryTag> categoryTags) {
+        this.categoryTags = categoryTags;
         id = id++;
         this.bidPrice = bidPrice;
-        this.auctionEndDate = auctionEndDate;
+        auctionEndDate = LocalDateTime.now();
         this.description = description;
         this.title = title;
         this.messages = messages;
@@ -22,16 +26,17 @@ public class Advert {
 
     private static int id;
     private float bidPrice;
-    private Date auctionEndDate;
+    private LocalDateTime auctionEndDate;
     private String description;
     private String title;
     private List<Message> messages;
+    private List<CategoryTag> categoryTags;
 
     public float getBidPrice() {
         return bidPrice;
     }
 
-    public Date getAuctionEndDate() {
+    public LocalDateTime getAuctionEndDate() {
         return auctionEndDate;
     }
 
@@ -60,5 +65,13 @@ public class Advert {
     public void update(Advert advert) {
         this.setTitle(advert.getTitle());
         this.setDescription(advert.getDescription());
+    }
+
+    public List<CategoryTag> getCategoryTags() {
+        return categoryTags;
+    }
+
+    public void setCategoryTags(List<CategoryTag> categoryTags) {
+        this.categoryTags = categoryTags;
     }
 }

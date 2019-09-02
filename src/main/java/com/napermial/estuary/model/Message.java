@@ -14,6 +14,18 @@ public class Message {
         this.userIsSeller = userIsSeller;
     }
 
+    public Message() {
+        date = LocalDateTime.now();
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setUserIsSeller(boolean userIsSeller) {
+        this.userIsSeller = userIsSeller;
+    }
+
     private LocalDateTime date;
     private String text;
     private boolean userIsSeller;
