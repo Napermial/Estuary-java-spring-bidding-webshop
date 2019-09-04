@@ -96,3 +96,7 @@ estuary.iml
 .idea/workspace.xml
 .idea/libraries/Maven__com_bluecatcode_mockito_mockito_1_10_19_extended_1_1_0.xml
 .idea/libraries/Maven__org_mockito_mockito_all_1_10_19.xml
+
+target/
+
+.idea/libraries/

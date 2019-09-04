@@ -14,7 +14,7 @@ public interface UserBase {
 
     void deleteUser(int userId);
 
-    void changeEmailAdress(int userId, String emailAdress);
+    void changeEmailaddress(int userId, String emailAdress);
 
     void changePassword(int userId, String password);
 }

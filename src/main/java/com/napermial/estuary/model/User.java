@@ -1,5 +1,7 @@
 package com.napermial.estuary.model;
 
+import com.napermial.estuary.dao.POJOimplementation.AdvertStorageImplementation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -8,23 +10,23 @@ import java.util.List;
 @Component
 public class User {
     private static int id;
-    private String emailAdress;
+    private String emailAddress;
     private String password;
-    private List<Advert> adverts;
+
+    @Autowired
+    private AdvertStorageImplementation adverts;
+
     private List<Message> messages;
     private LocalDateTime regeistrationDate;
 
-    public void setEmailAdress(String emailaddress) {
-        this.emailAdress = emailaddress;
+    public void setEmailAddress(String emailaddress) {
+        this.emailAddress = emailaddress;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setAdverts(List<Advert> adverts) {
-        this.adverts = adverts;
-    }
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
@@ -34,12 +36,12 @@ public class User {
         return id;
     }
 
-    public String getEmailAdress() {
-        return emailAdress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
     public List<Advert> getAdverts() {
-        return adverts;
+        return adverts.listAdverts();
     }
 
     public List<Message> getMessages() {
@@ -50,10 +52,9 @@ public class User {
         return regeistrationDate;
     }
 
-    public User(String emailAdress, String password, List<Advert> adverts, List<Message> messages) {
-        this.emailAdress = emailAdress;
+    public User(String emailAddress, String password, List<Message> messages) {
+        this.emailAddress = emailAddress;
         this.password = password;
-        this.adverts = adverts;
         this.messages = messages;
         id = id++;
         regeistrationDate = LocalDateTime.now();
@@ -63,16 +64,16 @@ public class User {
     }
 
     public void postAnAdvert(Advert advert) {
-        adverts.add(advert);
+        advert.setPoster(this);
+        adverts.postAdvert(advert);
     }
 
     public void removeAdvert(int id) {
-        adverts.remove(id);
+        adverts.removeAdvert(id);
     }
 
     public void updateAdvert(int id, Advert advert) {
-        Advert ad = adverts.get(id);
-        ad.update(advert);
+        adverts.updateAdvert(id, advert);
     }
 
     public void sendMessage(Message message) {

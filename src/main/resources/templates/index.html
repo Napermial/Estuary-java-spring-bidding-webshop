@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Front Page</title>
+    <title>Estuary</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -11,9 +12,27 @@
     <a class="navbar-brand navbar-light bg-light" href="#">register</a>
 </nav>
 
-<ul class="list-group">
-    <li class="list-class-item"></li>
-</ul>
+<table class="table table-dark" >
+    <thead>
+    <tr>
+       <th>Item name</th>
+       <th>Item description</th>
+       <th>Item current price</th>
+       <th>User posted</th>
+       <th>When posted</th>
+       <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="advert : ${adverts}">
+        <td> <a th:href="${advert.id}" th:text="${advert.title}">test</a></td>
+        <td th:text="${advert.description}">test</td>
+        <td th:text="${advert.bidPrice}">test</td>
+        <td th:text="${advert.poster.emailAddress}">test</td>
+        <td th:text="${advert.auctionEndDate}">test</td>
+        <td class="btn btn-success">bid</td>
+    </tr>
+</table>
 
 
 
