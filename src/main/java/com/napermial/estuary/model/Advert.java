@@ -4,32 +4,44 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 public class Advert {
-
     public Advert() {
-        id = id++;
+        this.id = count.incrementAndGet();
+        bidPrice = 0f;
         auctionEndDate = LocalDateTime.now();
     }
 
-    public Advert(float bidPrice, String description, String title, List<Message> messages, List<CategoryTag> categoryTags) {
+
+    public Advert(String description, String title, List<CategoryTag> categoryTags) {
         this.categoryTags = categoryTags;
-        id = id++;
-        this.bidPrice = bidPrice;
+        this.id = count.incrementAndGet();
+        bidPrice = 0f;
         auctionEndDate = LocalDateTime.now();
         this.description = description;
         this.title = title;
-        this.messages = messages;
     }
 
-    private static int id;
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private int id;
+
     private float bidPrice;
     private LocalDateTime auctionEndDate;
     private String description;
     private String title;
     private List<Message> messages;
     private List<CategoryTag> categoryTags;
+    private User poster;
+
+    public void setPoster(User poster) {
+        this.poster = poster;
+    }
+
+    public User getPoster() {
+        return poster;
+    }
 
     public float getBidPrice() {
         return bidPrice;
