@@ -98,3 +98,5 @@ estuary.iml
 .idea/libraries/Maven__org_mockito_mockito_all_1_10_19.xml
 
 target/
+
+.idea/libraries/
