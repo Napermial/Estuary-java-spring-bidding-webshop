@@ -2,15 +2,19 @@ package com.napermial.estuary.dao.POJOimplementation;
 
 import com.napermial.estuary.dao.UserBase;
 import com.napermial.estuary.model.User;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Component
 public class UserBaseImplementation implements UserBase {
 
     private List<User> users = new ArrayList<>();
 
+    public UserBaseImplementation() {
+    }
 
     @Override
     public User getUser(int userId) throws NoSuchElementException {
@@ -43,8 +47,8 @@ public class UserBaseImplementation implements UserBase {
     }
 
     @Override
-    public void changeEmailAdress(int userId, String emailAdress) {
-        getUser(userId).setEmailAdress(emailAdress);
+    public void changeEmailaddress(int userId, String emailAdress) {
+        getUser(userId).setEmailAddress(emailAdress);
     }
 
     @Override
