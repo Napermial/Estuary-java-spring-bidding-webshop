@@ -3,8 +3,6 @@ package com.napermial.estuary.model;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.util.Date;
 
 @Component
 public class Message {

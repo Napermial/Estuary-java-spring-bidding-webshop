@@ -62,11 +62,11 @@ public class User {
     public User() {
     }
 
-    public void postAnAdvert(Advert advert){
+    public void postAnAdvert(Advert advert) {
         adverts.add(advert);
     }
 
-    public void removeAdvert(int id){
+    public void removeAdvert(int id) {
         adverts.remove(id);
     }
 
