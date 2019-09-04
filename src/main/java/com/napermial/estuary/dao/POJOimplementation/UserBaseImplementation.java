@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 
 public class UserBaseImplementation implements UserBase {
 
-    List<User> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
 
     @Override
