@@ -43,6 +43,10 @@ public class Advert {
         return poster;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public float getBidPrice() {
         return bidPrice;
     }

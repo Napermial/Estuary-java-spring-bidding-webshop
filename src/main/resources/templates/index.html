@@ -8,8 +8,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand navbar-light bg-light" href="#">Estuary - the bidding game store</a>
-    <a class="navbar-brand navbar-light bg-light" href="#">login</a>
-    <a class="navbar-brand navbar-light bg-light" href="#">register</a>
+    <a class="navbar-brand navbar-light bg-light" id="login">login</a>
+    <a class="navbar-brand navbar-light bg-light" id="register">register</a>
 </nav>
 
 <table class="table table-dark" >
@@ -25,7 +25,7 @@
     </thead>
     <tbody>
     <tr th:each="advert : ${adverts}">
-        <td> <a th:href="${advert.id}" th:text="${advert.title}">test</a></td>
+        <td> <a th:href="${advert.getId()}" th:text="${advert.title}">test</a></td>
         <td th:text="${advert.description}">test</td>
         <td th:text="${advert.bidPrice}">test</td>
         <td th:text="${advert.poster.emailAddress}">test</td>
@@ -41,5 +41,6 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script defer src="js/registration.js"></script>
 </body>
 </html>
