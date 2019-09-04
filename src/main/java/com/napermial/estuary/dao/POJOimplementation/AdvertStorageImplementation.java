@@ -13,10 +13,6 @@ public class AdvertStorageImplementation implements AdvertStorage {
 
     private List<Advert> adverts = new ArrayList<>();
 
-    private List<Advert> adverts = new ArrayList<>();
-
-    public AdvertStorageImplementation() {
-    }
 
     public AdvertStorageImplementation() {
     }
